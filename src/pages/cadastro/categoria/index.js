@@ -29,9 +29,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log('BomDia!');
-    const URL_TOP = 'http://localhost:8080/categorias';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'https://localhost:8080/categorias'
+      : 'https://imersaoreactflix.herokuapp.com/categorias';
     fetch(URL_TOP)
       .then(async (respostaDoServer) => {
         const resposta = await respostaDoServer.json();
